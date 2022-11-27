@@ -13,7 +13,7 @@ class ConfirmBtn extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: 40, right: 40),
       child: InkWell(
-        onTap: () {},
+        onTap: onPressed,
         child: Material(
           color: ConstColors.ccActionAreaM.shade900,
           borderRadius: BorderRadius.circular(5),
