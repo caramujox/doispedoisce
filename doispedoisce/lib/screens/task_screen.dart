@@ -8,16 +8,16 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../model/task_model.dart';
 
-class GoalsScreen extends StatefulWidget {
-  const GoalsScreen({super.key, required this.title});
+class TaskScreen extends StatefulWidget {
+  const TaskScreen({super.key, required this.title});
   final String title;
-  static const String id = 'LoginScreen';
+  static const String id = 'TaskScreen';
 
   @override
-  State<GoalsScreen> createState() => _GoalsScreenState();
+  State<TaskScreen> createState() => _TaskScreenState();
 }
 
-class _GoalsScreenState extends State<GoalsScreen> {
+class _TaskScreenState extends State<TaskScreen> {
   var taskList = <Task>[];
 
   Task task1 = Task(

@@ -1,4 +1,5 @@
-import 'package:doispedoisce/screens/goals_screen.dart';
+import 'package:doispedoisce/screens/create_task_screen.dart';
+import 'package:doispedoisce/screens/task_screen.dart';
 import 'package:doispedoisce/screens/home_screen.dart';
 import 'package:doispedoisce/screens/login_screen.dart';
 import 'package:doispedoisce/screens/register_screen.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: ConstColors.ccBackgroundM,
           scaffoldBackgroundColor: ConstColors.ccBackgroundM.shade900),
-      home: const GoalsScreen(title: 'LoginScreen Screen'),
+      home: const CreateTaskScreen(title: 'LoginScreen Screen'),
       debugShowCheckedModeBanner: false,
     );
   }

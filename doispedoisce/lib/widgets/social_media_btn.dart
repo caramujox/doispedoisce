@@ -52,6 +52,5 @@ class SocialMediaBtn extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }
