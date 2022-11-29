@@ -11,7 +11,7 @@ Para acompanhar seu progresso o usuário pode rever seu histórico de tarefas qu
 Abaixo o protótipo da aplicação.
 
 <p align="center">
-<img src="img\trabalho.jpg" alt="Desenho macro de solução para o Trabalho">
+<img src="..\img\trabalho.jpg" alt="Desenho macro de solução para o Trabalho">
 </p>
 
 ## :white_check_mark: Objetivos, Regras e Requisitos
