@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doispedoisce/model/task_model.dart';
 import 'package:doispedoisce/util/const_colors.dart';
 import 'package:doispedoisce/widgets/app_text_input.dart';
 import 'package:doispedoisce/widgets/confirm_btn.dart';
@@ -24,6 +26,9 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
   bool isScheduled = false;
   TextEditingController dateInput = TextEditingController();
   final taskNameController = TextEditingController();
+  List<bool> scheduledDays = List<bool>.filled(7, false, growable: false);
+
+  var db = FirebaseFirestore.instance;
 
   @override
   void initState() {
@@ -65,6 +70,10 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                 ),
               ],
             ),
+            Text(
+              "Ainda não funcional, estudando ValueNotifier... ⬇️",
+              style: TextStyle(color: Colors.red, fontSize: 10),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -78,7 +87,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
               ],
             ),
             SizedBox(
-              height: 8,
+              height: 16,
             ),
             Text('Selecione a data alvo para a sua tarefa:',
                 textAlign: TextAlign.center,
@@ -132,7 +141,23 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
             SizedBox(
               height: 20,
             ),
-            ConfirmBtn(btnText: 'CADASTRAR', onPressed: () {}),
+            ConfirmBtn(
+                btnText: 'CADASTRAR',
+                onPressed: () async {
+                  final task = <String, dynamic>{
+                    "name": taskNameController.text,
+                    "isScheduled": isScheduled,
+                    "dueDate": DateTime.parse(dateInput.text),
+                    "isComplete": false
+                  };
+
+                  await db.collection("tasks").add(task).then((doc) =>
+                      print('DocumentSnapshot added with ID: ${doc.id}'));
+
+                  await Future.delayed(const Duration(milliseconds: 500));
+
+                  Navigator.pop(context);
+                }),
           ],
         ),
       )),

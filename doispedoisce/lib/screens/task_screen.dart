@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doispedoisce/screens/create_task_screen.dart';
 import 'package:doispedoisce/util/const_colors.dart';
 import 'package:doispedoisce/widgets/task_list_item.dart';
 import 'package:flutter/material.dart';
@@ -77,19 +79,17 @@ class _TaskScreenState extends State<TaskScreen> {
       TaskPurpose.personal,
       true);
 
+  var db = FirebaseFirestore.instance;
+
   @override
-  void initState() {
+  void initState() async {
     super.initState();
 
-    taskList.add(task1);
-    taskList.add(task2);
-    taskList.add(task3);
-    taskList.add(task4);
-    taskList.add(task4);
-    taskList.add(task4);
-    taskList.add(task4);
-    taskList.add(task4);
-    taskList.add(task4);
+    await db.collection("tasks").get().then((event) {
+      for (var doc in event.docs) {
+        print("${doc.id} => ${doc.data()}");
+      }
+    });
   }
 
   Widget build(BuildContext context) {
@@ -109,19 +109,41 @@ class _TaskScreenState extends State<TaskScreen> {
             height: 24,
           ),
           Flexible(
-            child: ListView.separated(
-              scrollDirection: Axis.vertical,
-              physics: ClampingScrollPhysics(),
-              shrinkWrap: true,
-              separatorBuilder: (_, __) => const SizedBox(
-                height: 8,
-              ),
-              itemCount: taskList.length,
-              itemBuilder: (_, index) {
-                var task = taskList[index];
-                return TaskListItem(task: task);
+            child: StreamBuilder(
+              stream:
+                  FirebaseFirestore.instance.collection('tasks').snapshots(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) return const Text("Loading...");
+                return ListView.separated(
+                  scrollDirection: Axis.vertical,
+                  physics: ClampingScrollPhysics(),
+                  shrinkWrap: true,
+                  separatorBuilder: (_, __) => const SizedBox(
+                    height: 8,
+                  ),
+                  itemCount: snapshot.data!.docs.length,
+                  itemBuilder: (_, index) {
+                    var taskDoc = snapshot.data!.docs[index];
+
+                    return TaskListItem(
+                        task: Task.fromDocumentSnapshot(taskDoc));
+                  },
+                );
               },
             ),
+            // child: ListView.separated(
+            //   scrollDirection: Axis.vertical,
+            //   physics: ClampingScrollPhysics(),
+            //   shrinkWrap: true,
+            //   separatorBuilder: (_, __) => const SizedBox(
+            //     height: 8,
+            //   ),
+            //   itemCount: taskList.length,
+            //   itemBuilder: (_, index) {
+            //     var task = taskList[index];
+            //     return TaskListItem(task: task);
+            //   },
+            // ),
           ),
           SizedBox(
             height: 16,
@@ -132,7 +154,9 @@ class _TaskScreenState extends State<TaskScreen> {
         backgroundColor: ConstColors.ccActionAreaM.shade800,
         foregroundColor: ConstColors.ccActionAreaM.shade900,
         disabledElevation: 0,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, CreateTaskScreen.id);
+        },
         child: FaIcon(FontAwesomeIcons.plus,
             color: ConstColors.ccBackgroundM.shade800),
       ),

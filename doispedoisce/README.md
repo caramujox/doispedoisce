@@ -19,11 +19,20 @@ Abaixo o protótipo da aplicação.
 A avaliação conta com os seguintes critérios de correção:
 
 - [x] Tela de Login e Cadastro separadas. O app deve ter uma tela de Splash também, nessa tela deve ser verificado se o usuário já realizou o login, caso já tenha feito o login, redirecionar diretamente para a home da aplicação.
-- [ ] Integração com banco de dados do Firebase ou consumo de alguma API (pode ser os dois).
+- [x] Integração com banco de dados do Firebase ou consumo de alguma API (pode ser os dois).
 - [x] Presença de listagem de informações (ListView)
 - [x] Documentação com informações gerais sobre a aplicação, objetivo do projeto, layout, instruções para testar o projeto (se necessário).
 - [x] Complexidade da solução (telas implementadas, widgets e pacotes utilizados, qualidade do código, organização)
 - [x] Qualidade do app, pontos de vista do usuário final
+
+## 🗺️ Próximos passos:
+
+Alguns pontos de melhoria para este projeto:
+
+- [ ] Implementar CRUD da tarefa (Create ok, falta o resto)
+- [ ] Exibir Histórico de completas
+- [ ] Implementar funcionalidades de periodicidade (quantos/quais dias da semana)
+- [ ] Implementar o Mapa de Atividade (Heatmap)
 
 ## 🚀 Executando o projeto
 

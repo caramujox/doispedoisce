@@ -29,12 +29,15 @@ class MyApp extends StatelessWidget {
       home: const WelcomeScreen(title: 'Welcome Screen'),
       debugShowCheckedModeBanner: false,
       routes: {
-        SplashScreen.id: (context) => SplashScreen(title: "Splash Screen"),
+        SplashScreen.id: (context) =>
+            const SplashScreen(title: "Splash Screen"),
         RegisterScreen.id: (context) =>
-            RegisterScreen(title: "Register Screen"),
-        LoginScreen.id: (context) => LoginScreen(title: "Login Screen"),
-        HomeScreen.id: (context) => HomeScreen(title: "Home Screen"),
-        TaskScreen.id: (context) => TaskScreen(title: "Task Screen")
+            const RegisterScreen(title: "Register Screen"),
+        LoginScreen.id: (context) => const LoginScreen(title: "Login Screen"),
+        HomeScreen.id: (context) => const HomeScreen(title: "Home Screen"),
+        TaskScreen.id: (context) => const TaskScreen(title: "Task Screen"),
+        CreateTaskScreen.id: (context) =>
+            const CreateTaskScreen(title: "CreateTask Screen")
       },
     );
   }
