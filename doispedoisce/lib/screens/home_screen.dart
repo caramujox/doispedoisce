@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:doispedoisce/screens/task_screen.dart';
 import 'package:doispedoisce/screens/welcome_screen.dart';
 import 'package:doispedoisce/util/const_colors.dart';
 import 'package:doispedoisce/widgets/confirm_btn.dart';
@@ -90,7 +91,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(
                     width: 64,
                   ),
-                  HomeScreenBtn(btnText: 'Minhas Metas', onPressed: () {})
+                  HomeScreenBtn(
+                      btnText: 'Minhas Metas',
+                      onPressed: () {
+                        Navigator.pushNamed(context, TaskScreen.id);
+                      })
                 ],
               ),
               Padding(

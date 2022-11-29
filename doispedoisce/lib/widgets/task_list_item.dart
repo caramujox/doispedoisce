@@ -1,10 +1,12 @@
 import 'package:doispedoisce/util/const_colors.dart';
+import 'package:doispedoisce/widgets/day_show_item.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 import '../model/task_model.dart';
+import 'day_pick_btn.dart';
 
 class TaskListItem extends StatelessWidget {
   const TaskListItem({super.key, required this.task});
@@ -72,7 +74,7 @@ class TaskListItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    task.name,
+                    "< ${task.name} >",
                     style: GoogleFonts.lato(
                         color: ConstColors.ccBackgroundM.shade800,
                         fontWeight: FontWeight.bold,
@@ -88,14 +90,32 @@ class TaskListItem extends StatelessWidget {
                         color: ConstColors.ccBackgroundM.shade800,
                         fontSize: 12),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "${task.schedule.contains(true) ? task.schedule.length : '-'}",
-                    style: GoogleFonts.lato(
-                        color: ConstColors.ccBackgroundM.shade800,
-                        fontSize: 12),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      DayShowItem(
+                          dayName: 'S',
+                          isScheduled: task.schedule.elementAt(0)),
+                      DayShowItem(
+                          dayName: 'T',
+                          isScheduled: task.schedule.elementAt(1)),
+                      DayShowItem(
+                          dayName: 'Q',
+                          isScheduled: task.schedule.elementAt(2)),
+                      DayShowItem(
+                          dayName: 'Q',
+                          isScheduled: task.schedule.elementAt(3)),
+                      DayShowItem(
+                          dayName: 'S',
+                          isScheduled: task.schedule.elementAt(4)),
+                      DayShowItem(
+                          dayName: 'S',
+                          isScheduled: task.schedule.elementAt(5)),
+                      DayShowItem(
+                          dayName: 'D',
+                          isScheduled: task.schedule.elementAt(6)),
+                    ],
                   ),
                 ],
               ),

@@ -32,7 +32,8 @@ class _TaskScreenState extends State<TaskScreen> {
         true,
         true,
       ],
-      TaskPurpose.personal);
+      TaskPurpose.personal,
+      false);
   Task task2 = Task(
       'Teste',
       DateTime(2022, 11, 23),
@@ -45,7 +46,8 @@ class _TaskScreenState extends State<TaskScreen> {
         false,
         false,
       ],
-      TaskPurpose.personal);
+      TaskPurpose.personal,
+      true);
   Task task3 = Task(
       'Teste',
       DateTime(2022, 11, 23),
@@ -58,7 +60,8 @@ class _TaskScreenState extends State<TaskScreen> {
         true,
         true,
       ],
-      TaskPurpose.personal);
+      TaskPurpose.personal,
+      false);
   Task task4 = Task(
       'Teste',
       DateTime(2022, 11, 23),
@@ -71,7 +74,8 @@ class _TaskScreenState extends State<TaskScreen> {
         true,
         true,
       ],
-      TaskPurpose.personal);
+      TaskPurpose.personal,
+      true);
 
   @override
   void initState() {

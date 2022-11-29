@@ -27,8 +27,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final pwdController = TextEditingController();
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 loginResult.accessToken!.token);
 
                         // Once signed in, return the UserCredential
-                        FirebaseAuth.instance
+                        await FirebaseAuth.instance
                             .signInWithCredential(facebookAuthCredential);
 
                         Navigator.pushReplacementNamed(context, HomeScreen.id);
