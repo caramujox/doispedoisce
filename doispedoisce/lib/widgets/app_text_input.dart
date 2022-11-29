@@ -8,11 +8,13 @@ class AppTextInput extends StatelessWidget {
       {super.key,
       required this.hintText,
       required this.isHidden,
-      required this.textInputType});
+      required this.textInputType,
+      required this.controller});
 
   final String hintText;
   final bool isHidden;
   final TextInputType textInputType;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class AppTextInput extends StatelessWidget {
           color: ConstColors.ccActionAreaM.shade900,
         ),
         child: TextField(
+          controller: controller,
           keyboardType: textInputType,
           obscureText: isHidden,
           autofocus: false,

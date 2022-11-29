@@ -6,9 +6,12 @@ import 'package:doispedoisce/screens/register_screen.dart';
 import 'package:doispedoisce/screens/splash_screen.dart';
 import 'package:doispedoisce/screens/welcome_screen.dart';
 import 'package:doispedoisce/util/const_colors.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -23,8 +26,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: ConstColors.ccBackgroundM,
           scaffoldBackgroundColor: ConstColors.ccBackgroundM.shade900),
-      home: const CreateTaskScreen(title: 'LoginScreen Screen'),
+      home: const WelcomeScreen(title: 'Welcome Screen'),
       debugShowCheckedModeBanner: false,
+      routes: {
+        SplashScreen.id: (context) => SplashScreen(title: "Splash Screen"),
+        RegisterScreen.id: (context) =>
+            RegisterScreen(title: "Register Screen"),
+        LoginScreen.id: (context) => LoginScreen(title: "Login Screen"),
+        HomeScreen.id: (context) => HomeScreen(title: "Home Screen"),
+        TaskScreen.id: (context) => TaskScreen(title: "Task Screen")
+      },
     );
   }
 }

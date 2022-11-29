@@ -1,5 +1,8 @@
+import 'package:doispedoisce/screens/home_screen.dart';
+import 'package:doispedoisce/screens/login_screen.dart';
 import 'package:doispedoisce/util/const_colors.dart';
 import 'package:doispedoisce/widgets/color_sample_scaffold.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -20,6 +23,22 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   void initState() {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) async {
+      if (user == null) {
+        print('User is currently signed out!');
+        await Future.delayed(const Duration(seconds: 1));
+        if (mounted) {
+          Navigator.restorablePushReplacementNamed(context, LoginScreen.id);
+        }
+      } else {
+        print('User is signed in!');
+        await Future.delayed(const Duration(seconds: 1));
+        if (mounted) {
+          Navigator.restorablePushReplacementNamed(context, HomeScreen.id);
+        }
+      }
+    });
+
     controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 5),

@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "622089710662",
+    "project_id": "doispedoisce",
+    "storage_bucket": "doispedoisce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622089710662:android:d72b644638c3a09bf42e47",
+        "android_client_info": {
+          "package_name": "com.example.doispedoisce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "622089710662-2alj16hlnl2s51slvm6pm7sf624d6pc8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.doispedoisce",
+            "certificate_hash": "41316a79c89de404a832c62655ad93dad0246ed7"
+          }
+        },
+        {
+          "client_id": "622089710662-oggvlln0bh4aguf8e96nilb39e2mf01e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.doispedoisce",
+            "certificate_hash": "c6b57ff527b2ef39a6bc3cc815827837365b6b2e"
+          }
+        },
+        {
+          "client_id": "622089710662-ij1rlklosjpc6nrjn0hsh45kab8rf407.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcsO3kyoYrtfwTkgMfy9nxpTFTYcW9Oug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "622089710662-ij1rlklosjpc6nrjn0hsh45kab8rf407.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "622089710662-hfop2mcjk43cesvmcrvgv2l7vof64jc3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.doispedoisce"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

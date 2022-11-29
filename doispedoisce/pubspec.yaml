@@ -41,6 +41,10 @@ dependencies:
   flutter_heatmap_calendar: ^1.0.5
   intl: ^0.17.0
   syncfusion_flutter_datepicker: ^20.3.58
+  firebase_auth: ^4.1.4
+  firebase_core: ^2.3.0
+  google_sign_in: ^5.4.2
+  flutter_facebook_auth: ^5.0.6
 
 dev_dependencies:
   flutter_test:

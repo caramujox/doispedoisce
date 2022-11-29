@@ -1,3 +1,5 @@
+import 'package:doispedoisce/screens/register_screen.dart';
+import 'package:doispedoisce/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -26,18 +28,18 @@ class WelcomeScreen extends StatelessWidget {
                 letterSpacing: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text('Suas metas e planejamentos na palma da sua mão',
                 style: GoogleFonts.lato(fontSize: 14)),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Container(
               width: 260,
               height: 260,
-              decoration: new BoxDecoration(
+              decoration: BoxDecoration(
                   color: ConstColors.ccActionAreaM.shade900,
                   shape: BoxShape.circle,
                   boxShadow: [
@@ -45,7 +47,7 @@ class WelcomeScreen extends StatelessWidget {
                         color: ConstColors.ccActionAreaM.shade900,
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset: Offset(0, 3))
+                        offset: const Offset(0, 3))
                   ]),
               child: Padding(
                 padding: const EdgeInsets.all(32.0),
@@ -55,7 +57,7 @@ class WelcomeScreen extends StatelessWidget {
                     Container(
                       width: 60,
                       height: 60,
-                      decoration: new BoxDecoration(
+                      decoration: BoxDecoration(
                           color: ConstColors.ccPersonalTaskM.shade100,
                           shape: BoxShape.circle),
                       child: Center(
@@ -66,14 +68,14 @@ class WelcomeScreen extends StatelessWidget {
                                 color: ConstColors.ccBackgroundM.shade900)),
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
                           width: 60,
                           height: 60,
-                          decoration: new BoxDecoration(
+                          decoration: BoxDecoration(
                               color: ConstColors.ccPersonalTaskM.shade100,
                               shape: BoxShape.circle),
                           child: Center(
@@ -84,14 +86,14 @@ class WelcomeScreen extends StatelessWidget {
                                     color: ConstColors.ccBackgroundM.shade900)),
                           ),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         FaIcon(FontAwesomeIcons.repeat,
                             color: ConstColors.ccFinancialTaskM.shade900),
-                        Spacer(),
+                        const Spacer(),
                         Container(
                           width: 60,
                           height: 60,
-                          decoration: new BoxDecoration(
+                          decoration: BoxDecoration(
                               color: ConstColors.ccPersonalTaskM.shade100,
                               shape: BoxShape.circle),
                           child: Center(
@@ -104,11 +106,11 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Container(
                       width: 60,
                       height: 60,
-                      decoration: new BoxDecoration(
+                      decoration: BoxDecoration(
                           color: ConstColors.ccPersonalTaskM.shade100,
                           shape: BoxShape.circle),
                       child: Center(
@@ -123,7 +125,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 48,
             ),
             Padding(
@@ -134,13 +136,15 @@ class WelcomeScreen extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, SplashScreen.id);
+                      },
                       child: Material(
                         color: ConstColors.ccActionAreaM.shade900,
                         borderRadius: BorderRadius.circular(5),
                         child: Center(
                             child: Padding(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 28.0, vertical: 10),
                           child: Text(
                             'ENTRAR',
@@ -153,19 +157,21 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Expanded(
                     flex: 1,
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, RegisterScreen.id);
+                      },
                       child: Material(
                         color: ConstColors.ccActionAreaM.shade900,
                         borderRadius: BorderRadius.circular(5),
                         child: Center(
                             child: Padding(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 28.0, vertical: 10),
                           child: Text(
                             'CADASTRAR',

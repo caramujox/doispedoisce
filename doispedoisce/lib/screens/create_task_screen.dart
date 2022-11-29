@@ -23,6 +23,7 @@ class CreateTaskScreen extends StatefulWidget {
 class _CreateTaskScreenState extends State<CreateTaskScreen> {
   bool isScheduled = false;
   TextEditingController dateInput = TextEditingController();
+  final taskNameController = TextEditingController();
 
   @override
   void initState() {
@@ -38,13 +39,14 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Nova Meta',
+            Text('Nova Tarefa',
                 style: GoogleFonts.lato(
                     fontSize: 32, fontWeight: FontWeight.bold)),
             SizedBox(
               height: 16,
             ),
             AppTextInput(
+                controller: taskNameController,
                 hintText: 'Nova Meta',
                 isHidden: false,
                 textInputType: TextInputType.text),

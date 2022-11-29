@@ -20,7 +20,7 @@ class SocialMediaBtn extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: 10, right: 10),
       child: InkWell(
-        onTap: () {},
+        onTap: onPressed,
         child: Material(
           color: mainColor,
           borderRadius: BorderRadius.circular(5),

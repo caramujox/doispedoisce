@@ -1,5 +1,7 @@
+import 'package:doispedoisce/screens/home_screen.dart';
 import 'package:doispedoisce/widgets/app_text_input.dart';
 import 'package:doispedoisce/widgets/confirm_btn.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,6 +17,9 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final emailController = TextEditingController();
+  final pwdController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +43,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 height: 72,
               ),
               AppTextInput(
+                  controller: emailController,
                   hintText: 'E-mail',
                   textInputType: TextInputType.emailAddress,
                   isHidden: false),
@@ -45,13 +51,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 height: 16,
               ),
               AppTextInput(
+                  controller: pwdController,
                   hintText: 'Senha',
                   textInputType: TextInputType.text,
                   isHidden: true),
               const SizedBox(
                 height: 16,
               ),
-              ConfirmBtn(btnText: 'CADASTRAR', onPressed: () {}),
+              ConfirmBtn(
+                  btnText: 'CADASTRAR',
+                  onPressed: () {
+                    FirebaseAuth.instance.createUserWithEmailAndPassword(
+                        email: emailController.text,
+                        password: pwdController.text);
+                    print("Cadastrou com sucesso!");
+                    Navigator.pushNamed(context, HomeScreen.id);
+                  }),
               const SizedBox(
                 height: 56,
               ),
